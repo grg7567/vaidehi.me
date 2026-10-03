@@ -35,67 +35,65 @@ const { nav } = Astro.props as Props;
 </header>
 
 <script is:inline>
-  const root = document.documentElement;
-  const storageKey = "theme";
+  // wrapped so the client router can re-run this script without redeclaring consts
+  (() => {
+    const applyTheme = (theme) => {
+      document.documentElement.classList.toggle("dark", theme === "dark");
+      localStorage.setItem("theme", theme);
+    };
 
-  const applyTheme = (theme) => {
-    root.classList.toggle("dark", theme === "dark");
-    localStorage.setItem(storageKey, theme);
-  };
+    const bindThemeToggle = () => {
+      document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+        if (button.getAttribute("data-theme-bound") === "true") return;
+        button.setAttribute("data-theme-bound", "true");
 
-  const initialTheme =
-    localStorage.getItem(storageKey) ||
-    (root.classList.contains("dark") ? "dark" : "light");
+        button.addEventListener("click", (event) => {
+          const root = document.documentElement;
+          const nextTheme = root.classList.contains("dark") ? "light" : "dark";
+          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  applyTheme(initialTheme);
+          if (!document.startViewTransition || reduceMotion) {
+            applyTheme(nextTheme);
+            return;
+          }
 
-  const bindThemeToggle = () => {
-    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
-      if (button.getAttribute("data-theme-bound") === "true") return;
-      button.setAttribute("data-theme-bound", "true");
-
-      button.addEventListener("click", (event) => {
-        const nextTheme = root.classList.contains("dark") ? "light" : "dark";
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        if (!document.startViewTransition || reduceMotion) {
-          applyTheme(nextTheme);
-          return;
-        }
-
-        // sweep a circle out from the toggle to the farthest corner of the viewport
-        const rect = button.getBoundingClientRect();
-        const x = event.clientX || rect.left + rect.width / 2;
-        const y = event.clientY || rect.top + rect.height / 2;
-        const radius = Math.hypot(
-          Math.max(x, window.innerWidth - x),
-          Math.max(y, window.innerHeight - y)
-        );
-
-        root.classList.add("theme-transition");
-        const transition = document.startViewTransition(() => applyTheme(nextTheme));
-
-        transition.ready.then(() => {
-          root.animate(
-            {
-              clipPath: [
-                `circle(0px at ${x}px ${y}px)`,
-                `circle(${radius}px at ${x}px ${y}px)`,
-              ],
-            },
-            {
-              duration: 500,
-              easing: "ease-in-out",
-              pseudoElement: "::view-transition-new(root)",
-            }
+          // sweep a circle out from the toggle to the farthest corner of the viewport
+          const rect = button.getBoundingClientRect();
+          const x = event.clientX || rect.left + rect.width / 2;
+          const y = event.clientY || rect.top + rect.height / 2;
+          const radius = Math.hypot(
+            Math.max(x, window.innerWidth - x),
+            Math.max(y, window.innerHeight - y)
           );
+
+          root.classList.add("theme-transition");
+          const transition = document.startViewTransition(() => applyTheme(nextTheme));
+
+          transition.ready.then(() => {
+            root.animate(
+              {
+                clipPath: [
+                  `circle(0px at ${x}px ${y}px)`,
+                  `circle(${radius}px at ${x}px ${y}px)`,
+                ],
+              },
+              {
+                duration: 500,
+                easing: "ease-in-out",
+                pseudoElement: "::view-transition-new(root)",
+              }
+            );
+          });
+
+          transition.finished.finally(() => root.classList.remove("theme-transition"));
         });
-
-        transition.finished.finally(() => root.classList.remove("theme-transition"));
       });
-    });
-  };
+    };
 
-  bindThemeToggle();
-  document.addEventListener("astro:after-swap", bindThemeToggle);
+    bindThemeToggle();
+    if (!window.__themeToggleListening) {
+      window.__themeToggleListening = true;
+      document.addEventListener("astro:after-swap", bindThemeToggle);
+    }
+  })();
 </script>

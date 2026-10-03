@@ -15,12 +15,13 @@ const { t, locale } = useI18n<LocaleSchema>({
 });
 
 const nav = [
-	{ path: `/`, text: t("nav.about") },
+	{ path: `#${t("nav.about")}`, text: t("nav.about") },
 	{ path: `#${t("nav.projects")}`, text: t("nav.projects") },
 	{ path: `#${t("nav.books")}`, text: t("nav.books") },
 ];
 
 const heroProps = {
+	id: t("nav.about").toLowerCase(),
 	name: "hi, im vaidehi",
 	title: { key: "hero.title", value: t("hero.title") },
 	p1: { key: "hero.p1", value: t("hero.p1") },
