@@ -97,3 +97,14 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* theme toggle sweep: replace the default crossfade with the clip-path reveal set in Header.astro */
+.theme-transition::view-transition-old(root),
+.theme-transition::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+.theme-transition::view-transition-new(root) {
+  z-index: 1;
+}

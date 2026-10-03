@@ -4,7 +4,6 @@
     "about": "about",
     "projects": "projects",
     "books": "books",
-    "skills": "skills",
     "contact": "contact"
   },
   "hero": {
@@ -16,6 +15,11 @@
   "projects": {
     "title": "Projects",
     "item_1": {
+      "name": "wherehouse",
+      "description": "location intelligence that heatmaps the best spots for warehouses, retail and ev chargers using population, road access, zoning and flood risk.",
+      "link": "https://github.com/swapnil404/wherehouse"
+    },
+    "item_2": {
       "name": "gurl-lang",
       "description": "a play on typescript, custom programming language made with slang terminology.",
       "link": "https://github.com/byedeep/gurl-lang"
@@ -25,73 +29,33 @@
     "title": "Books",
     "item_1": {
       "period": "currently",
-      "book": "The Handmaid's Tale",
-      "author": "Margaret Atwood",
+      "book": "A Tale of Two Cities",
+      "author": "Charles Dickens",
       "description": "not too many thoughts on this one yet. wait for it"
     },
     "item_2": {
+      "period": "previously",
+      "book": "Katabasis",
+      "author": "R.F. Kuang",
+      "description": "a descent into hell to rescue the advisor who ruined your life. dark academia at its most literal."
+    },
+    "item_3": {
       "period": "previously",
       "book": "Hannibal Rising",
       "author": "Thomas Harris",
       "description": "eery, heartbreaking and completely captivating. Once again, absolutely devastating and beautifully written."
     },
-    "item_3": {
+    "item_4": {
       "period": "best of 2025",
       "book": "Babel: Or the Necessity of Violence",
       "author": "R.F. Kuang",
       "description": "'the last capitalist we hang will be the one who sold us the rope.' a brilliant and harrowing exploration of colonialism, capitalism, and resistance."
     },
-    "item_4": {
+    "item_5": {
       "period": "best of 2024",
       "book": "The Chaos Walking Trilogy",
       "author": "Patrick Ness",
       "description": "fantastic, bold, and thought-provoking series that explores themes of identity, morality, and the consequences of power."
-    }
-  },
-  "skills": {
-    "heading": "skills",
-    "learning_text": "im still building and refining my skillset come back in a few months",
-    "react": {
-      "title": "React",
-      "category": "Lib",
-      "description": "UI Components, Hooks, State Management",
-      "experience_years": "4",
-      "experience_label": "years of experience"
-    },
-    "typescript": {
-      "title": "TypeScript",
-      "category": "Language",
-      "description": "Static Typing, Generics, Interfaces",
-      "experience_years": "3",
-      "experience_label": "years of experience"
-    },
-    "astro": {
-      "title": "Astro",
-      "category": "Framework",
-      "description": "Island Architecture, Static Site Generation",
-      "experience_years": "2",
-      "experience_label": "years of experience"
-    },
-    "tailwind": {
-      "title": "Tailwind CSS",
-      "category": "Design",
-      "description": "Utility-First CSS, Responsive Design",
-      "experience_years": "4",
-      "experience_label": "years of experience"
-    },
-    "nodejs": {
-      "title": "Node.js",
-      "category": "Backend",
-      "description": "REST APIs, Express, Authentication",
-      "experience_years": "3",
-      "experience_label": "years of experience"
-    },
-    "kali_linux": {
-      "title": "Kali Linux",
-      "category": "Security",
-      "description": "Pentesting, SQL Injection, Network Auditing",
-      "experience_years": "1",
-      "experience_label": "year of experience"
     }
   },
   "contact": {

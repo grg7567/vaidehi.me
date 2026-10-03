@@ -7,7 +7,6 @@ import Hero from "@/src/components/Hero.astro";
 import Projects from "@/src/components/Projects.astro";
 import Experience from "@/src/components/Experience.astro";
 import Footer from "@/src/components/Footer.astro";
-import Skills from "@/src/components/Skills.astro";
 
 const { t, locale } = useI18n<LocaleSchema>({
 	ssg: {
@@ -19,7 +18,6 @@ const nav = [
 	{ path: `/`, text: t("nav.about") },
 	{ path: `#${t("nav.projects")}`, text: t("nav.projects") },
 	{ path: `#${t("nav.books")}`, text: t("nav.books") },
-	{ path: `#${t("nav.skills")}`, text: t("nav.skills") },
 ];
 
 const heroProps = {
@@ -37,6 +35,13 @@ const projects = [
 		name: t("projects.item_1.name"),
 		description: t("projects.item_1.description"),
 		link: t("projects.item_1.link"),
+	},
+	{
+		nameKey: "projects.item_2.name",
+		descriptionKey: "projects.item_2.description",
+		name: t("projects.item_2.name"),
+		description: t("projects.item_2.description"),
+		link: t("projects.item_2.link"),
 	},
 ];
 
@@ -123,6 +128,24 @@ const booksData = {
 				value: t("books.item_4.description"),
 			},
 		},
+		{
+			period: {
+				key: "books.item_5.period",
+				value: t("books.item_5.period"),
+			},
+			book: {
+				key: "books.item_5.book",
+				value: t("books.item_5.book"),
+			},
+			author: {
+				key: "books.item_5.author",
+				value: t("books.item_5.author"),
+			},
+			description: {
+				key: "books.item_5.description",
+				value: t("books.item_5.description"),
+			},
+		},
 	],
 };
 
@@ -171,14 +194,6 @@ const footerContent = {
 		<Hero {...heroProps} />
 		<Projects {...projectsProps} />
 		<Experience {...booksData} />
-		<Skills
-			id={t("nav.skills")}
-			heading={{ key: "skills.heading", value: t("skills.heading") }}
-			message={{
-				key: "skills.learning_text",
-				value: t("skills.learning_text"),
-			}}
-		/>
 	</main>
 
 	<Footer {...footerContent} />
