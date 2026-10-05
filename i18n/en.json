@@ -9,7 +9,7 @@
   "hero": {
     "title": "cs undergrad",
     "p1": "trying to find my place in the world, passionate about books, cars and everything else in between.",
-    "p2": "keenly interested in design and a clean ui",
+    "p2": "keenly interested in design and clean ui",
     "p3": "When not coding, you can find me reading, eating or sleeping (<a href=\"https://letterboxd.com/grg21/\" target=\"_blank\" rel=\"noopener noreferrer\">or movies. i like movies</a>)."
   },
   "projects": {
@@ -31,31 +31,31 @@
       "period": "currently",
       "book": "A Tale of Two Cities",
       "author": "Charles Dickens",
-      "description": "not too many thoughts on this one yet. wait for it"
+      "description": "Not too many thoughts on this one yet. wait for it"
     },
     "item_2": {
       "period": "previously",
       "book": "Katabasis",
       "author": "R.F. Kuang",
-      "description": "a descent into hell to rescue the advisor who ruined your life. dark academia at its most literal."
+      "description": "A descent into hell to rescue the advisor who ruined your life. dark academia at its most literal."
     },
     "item_3": {
       "period": "previously",
       "book": "Hannibal Rising",
       "author": "Thomas Harris",
-      "description": "eery, heartbreaking and completely captivating. Once again, absolutely devastating and beautifully written."
+      "description": "Eery, heartbreaking and completely captivating. Once again, absolutely devastating and beautifully written."
     },
     "item_4": {
       "period": "best of 2025",
       "book": "Babel: Or the Necessity of Violence",
       "author": "R.F. Kuang",
-      "description": "'the last capitalist we hang will be the one who sold us the rope.' a brilliant and harrowing exploration of colonialism, capitalism, and resistance."
+      "description": "'The last capitalist we hang will be the one who sold us the rope.',A brilliant and harrowing exploration of colonialism, capitalism, and resistance."
     },
     "item_5": {
       "period": "best of 2024",
       "book": "The Chaos Walking Trilogy",
       "author": "Patrick Ness",
-      "description": "fantastic, bold, and thought-provoking series that explores themes of identity, morality, and the consequences of power."
+      "description": "Fantastic, bold, and thought-provoking series that explores themes of identity, morality, and the consequences of power."
     }
   },
   "contact": {
